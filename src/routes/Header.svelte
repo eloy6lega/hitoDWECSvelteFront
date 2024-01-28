@@ -17,10 +17,19 @@
 		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
+				<a href="/">🏠</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/select' ? 'page' : undefined}>
-				<a href="/select">Ver datos</a>
+				<a href="/select">👀</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/insert' ? 'page' : undefined}>
+				<a href="/insert">➕</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/updatedelete' ? 'page' : undefined}>
+				<a href="/updatedelete">🔃 / ❌</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/nosotros' ? 'page' : undefined}>
+				<a href="/nosotros">❔</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">

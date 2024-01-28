@@ -1,30 +1,17 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-</script>
-
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Biblioteca Mágica</title>
+	<meta name="description" content="Explora nuestra increíble colección de libros mágicos" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+<!-- Me gustaría añadir un cursor personalizado a la web entera. Los archivos están descargados en la carpeta images -->
 
-		to your new<br />SvelteKit app
-	</h1>
+<section style="margin-top:-40px; font-size: 60px">
+	<h1 class="letra">La Biblioteca Mágica</h1>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
+	<div class="library-image">
+		<img src="https://wallpapers.com/images/hd/the-hogwarts-library-1920-x-1138-wallpaper-op1lmkio8xnzxd9e.jpg" alt="Imagen de la Biblioteca Mágica" style="width: 1200px; height: 700px;" />
+	</div>
+	<p class="letra" style="font-size: 30px; margin-top: -1px">El secreto está en las páginas</p>
 </section>
 
 <style>
@@ -34,25 +21,23 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
+		text-align: center;
 	}
 
 	h1 {
 		width: 100%;
+		margin-bottom: 16px;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	/* global.css */
+	@font-face {
+		font-family: 'HARRYP';
+		src: url('../lib/font/HARRYP__.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.letra{
+		font-family: 'HARRYP';
 	}
 </style>

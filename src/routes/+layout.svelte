@@ -10,8 +10,9 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<footer class="letra" style="margin-top: -50px; font-size: 20px">
+		<p>Hito realizado para <strong>Desarrollo Web Entorno Cliente</strong> con <strong>Svelte</strong>, <strong>IntelliJ</strong> y <strong>MySQL</strong></p>
+		Por Eloy Pérez Gómez
 	</footer>
 </div>
 
@@ -49,5 +50,17 @@
 		footer {
 			padding: 12px 0;
 		}
+	}
+
+	/* global.css */
+	@font-face {
+		font-family: 'HARRYP';
+		src: url('../lib/font/HARRYP__.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.letra{
+		font-family: 'HARRYP';
 	}
 </style>
