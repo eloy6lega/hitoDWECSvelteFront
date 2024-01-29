@@ -8,6 +8,20 @@
 		catFact = data;
 		console.log(catFact);
 	});
+
+	async function doDelete (id) {
+		console.log(id);
+		await fetch(`/deleteBook/${id}`, {
+			method: 'DELETE',
+			
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
+		
+		// recarga la página completa
+		location.reload();
+	}
 </script>
 
 <svelte:head>
@@ -15,7 +29,7 @@
 	<meta name="description" content="About this app" />	
 </svelte:head>
 
-<div class="container">
+<div class="container"></div>
 	<div class="row letra datos">
 		{#each catFact as fact}
 			<div class="col-md-4">
@@ -25,12 +39,13 @@
 						<h6 class="card-subtitle mb-2 text-muted">{fact.author}</h6>
 						<p class="card-text">Precio: {fact.price}</p>
 						<p class="card-text">Id: {fact.id}</p>
+						<button style="color: green;" on:click={()=>doDelete(fact.id)}>borrar</button>
 					</div>
 				</div>
 			</div>
 		{/each}
 	</div>
-</div>
+
 
 <style>
 
