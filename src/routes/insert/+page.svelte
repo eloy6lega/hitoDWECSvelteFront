@@ -4,6 +4,8 @@
 </svelte:head>
 
 <script>
+	import fondo from '$lib/images/fondoLibro.webp';
+
 	let author = '';
 	let name = '';
 	let price = '';
@@ -31,19 +33,15 @@
 	<div class="formulario">
 		
 			<label for="bookAuthor">Autor del libro:</label>
-			<input type="text" id="bookAuthor" bind:value={author}><br>
+			<input type="text" id="bookAuthor" bind:value={author} style="background-image: url({fondo}); text-align: center;"><br>
 
 			<label for="bookName">Nombre del libro:</label>
-			<input type="text" id="bookName" bind:value={name}><br>
+			<input type="text" id="bookName" bind:value={name} style="background-image: url({fondo}); text-align: center;"><br>
 
 			<label for="bookPrice">Precio:</label>
-			<input type="number" step="0.01" id="bookPrice" bind:value={price}><br>
+			<input type="number" step="0.01" id="bookPrice" bind:value={price} style="background-image: url({fondo}); text-align: center;"><br>
 
-			<button on:click={doPost}>
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-				</svg>
-			</button>
+			<button on:click={doPost}>Crear Libro</button>
 		
 	</div>
 </div>
@@ -60,6 +58,8 @@
 	.letra {
 		font-family: 'HARRYP';
 		font-size: 30px;
+		color: white;
+		text-shadow: 6px 6px 10px #000000;
 	}
 
 	label {
@@ -68,6 +68,8 @@
 
 	input {
 		margin-bottom: 5px;
+		border: 3px solid black;
+		border-radius: 5px;
 	}
 
 	.formulario {
@@ -79,12 +81,13 @@
 
 	button {
 		margin: 0 auto;
-		background-color: #4CAF50;
+		background-color: #543d0b;
 		color: white;
 		padding: 10px 20px;
 		border: none;
 		cursor: pointer;
 		margin-bottom: 30px;
+		border-radius: 10px;
 		
 	}
 

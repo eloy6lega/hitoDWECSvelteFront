@@ -2,6 +2,11 @@
 	import { page } from '$app/stores';
 	import logo from '$lib/images/favicon.ico';
 	import github from '$lib/images/github.svg';
+	import { goto } from '$app/navigation';
+	
+	function handleLogin() {
+		goto('/login');
+	}
 </script>
 
 <header>
@@ -38,13 +43,63 @@
 	</nav>	
 
 	<div class="corner">
-		<a href="https://github.com/eloy6lega">
-			<img src={github} alt="GitHub" />
-		</a>
+		<button class="botonsito" on:click={handleLogin}>
+			<img src="https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png" alt="">
+		</button>
 	</div>
 </header>
 
 <style>
+	.botonsito{
+		padding: 5px;
+		margin: 4px 2px;
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.corner {
+		width: 3em;
+		height: 3em;
+	}
+
+	.corner a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	.corner img {
+		width: 2em;
+		height: 2em;
+		object-fit: contain;
+	}
+
+	nav {
+		display: flex;
+		justify-content: center;
+		--background: rgba(255, 255, 255, 0.7);
+	}
+
+	svg {
+		width: 2em;
+		height: 3em;
+		display: block;
+	}
+
+	path {
+		fill: var(--background);
+	}
+				
+	.botonsito{
+		padding: 5px;
+		margin: 4px 2px;
+	}
+
 	header {
 		display: flex;
 		justify-content: space-between;

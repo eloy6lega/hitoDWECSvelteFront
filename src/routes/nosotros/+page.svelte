@@ -1,4 +1,5 @@
 <script>
+	import fondo from '$lib/images/fondoLibro.webp';
 </script>
 
 <svelte:head>
@@ -8,12 +9,26 @@
 
 <div class="container letra">
 
-	<h3 class="titulo">BEINVENIDOS A LA BIBLIOTECA DE HARRY POTTER</h3>
-
-	<p>Somos un grupo de entusiastas de los libros de Harry Potter que hemos creado esta biblioteca virtual para compartir nuestra pasión con todos los fans de la saga.</p>
-	<p>Aquí encontrarás una amplia colección de libros relacionados con el mundo mágico de Harry Potter, desde los clásicos siete libros de la serie principal hasta libros complementarios, guías y mucho más.</p>
-	<p>Nuestro objetivo es proporcionar un espacio donde los fans de Harry Potter puedan explorar, descubrir y disfrutar de la magia de la lectura. Además, ofrecemos la posibilidad de intercambiar libros con otros usuarios y participar en eventos y actividades relacionadas con la saga.</p>
-	<h4 class="subtitulo">Únete a nuestra comunidad y sumérgete en el maravilloso mundo de Harry Potter</h4>
+	<div class="letra datos">
+		<div class="seccion">
+			<div class="bg-white shadow-md rounded-lg p-4 cartas" style="background-image: url({fondo});">
+				<div class="">
+					<br>
+					<p class="titulo">BIENVENIDOS A LA BIBLIOTECA DE HARRY POTTER</p>
+					<div class="lema">
+						<p>Somos un grupo de entusiastas de los libros de Harry Potter.</p><br>
+						<p>Aquí encontrarás una amplia colección de libros relacionados con el mundo mágico de Harry Potter, desde los clásicos siete libros de la serie principal hasta libros complementarios, guías y mucho más.</p><br>
+						<p style="font-size: 40px;">Únete y sumérgete en el maravilloso mundo de Harry Potter</p>
+					</div>
+					
+					<!-- <h4 class="subtitulo">Únete a nuestra comunidad y sumérgete en el maravilloso mundo de Harry Potter</h4> -->
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	
 
 </div>
 
@@ -30,6 +45,26 @@
 	.letra{
 		font-family: 'HARRYP';
 		font-size: 30px;
+		color: white;
+	}
+
+	.seccion {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+		text-align: center;
+		color: white;
+		text-shadow: 2px 2px 5px #000000;
+	}
+
+	.cartas{
+		margin: 0 auto;
+		margin-top: 50px;
+		width: 600px;
+		height:840px;
+		border-radius: 20px;
 	}
 
 	.titulo{
@@ -41,6 +76,13 @@
 	.subtitulo{
 		text-align: center;
 		font-size: 40px;
+	}
+
+	.lema{
+		font-size: 30px;
+		padding: 15px;
+		margin: 50px;
+		text-align: justify;
 	}
 
 </style>

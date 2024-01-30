@@ -4,16 +4,16 @@
 </script>
 
 <div class="app">
-	<Header />
+	<Header />	
 
 	<main>
 		<slot />
 	</main>
 
-	<footer class="letra" style="margin-top: -50px; font-size: 20px">
+	<!-- <footer class="letra" style="margin-top: -50px; font-size: 20px">
 		<p>Hito realizado para <strong>Desarrollo Web Entorno Cliente</strong> con <strong>Svelte</strong>, <strong>IntelliJ</strong> y <strong>MySQL</strong></p>
 		Por Eloy Pérez Gómez
-	</footer>
+	</footer> -->
 </div>
 
 <style>
