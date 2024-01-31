@@ -13,21 +13,28 @@
 		let users = [
 			{ username: "admin", password: "admin" },
 			{ username: "paco", password: "123" },
-			{ username: "lola", password: "123" }
+			{ username: "lola", password: "123" },
+			{ username: "fran", password: "123" },
+			{ username: "diego", password: "123" },
+			{ username: "dani", password: "123" },
+			{ username: "alvaro", password: "123" }
 		];
 
 		function login() {
-			const username = document.getElementById("username").value;
-			const password = document.getElementById("password").value;
+		const username = document.getElementById("username").value;
+		const password = document.getElementById("password").value;
 
-			const user = users.find(user => user.username === username && user.password === password);
+		const user = users.find(user => user.username === username && user.password === password);
 
-			if (user) {
-				window.location.href = "http://localhost:5173/";
-			} else {
-				alert("Usuario o contraseña incorrectos");
-			}
+		if (user) {
+			// Crear una cookie de sesión
+			document.cookie = `session=${username}; path=/;`;
+			window.location.href = "http://localhost:5173/";
+		} else {
+			alert("Usuario o contraseña incorrectos");
+			window.location.href = "http://localhost:5173/login";
 		}
+	}
 
 
 </script>
@@ -114,7 +121,7 @@
 	}
 
 	.boton1:hover {
-		background-color: rgb(150, 150, 150);
+		background-color: rgb(16, 111, 19);
 	}
 
 	.botones2 {
@@ -126,7 +133,8 @@
 
 
 	.botones2-1 {
-        margin: 0 10px;
+        margin: 0 20px;
+		margin-top: 30PX;
     }
 
 	.botones2 button {

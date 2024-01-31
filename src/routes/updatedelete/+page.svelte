@@ -2,6 +2,36 @@
 	import fondo from '$lib/images/fondoLibro.webp';
 
 	import { onMount } from 'svelte';
+
+	function checkSession() {
+        // Obtener todas las cookies y buscar la de sesión
+        const cookies = document.cookie.split(';');
+        const sessionCookie = cookies.find(cookie => cookie.trim().startsWith('session='));
+
+        // Si la cookie de sesión existe, devuelve true
+        return sessionCookie !== undefined;
+    }
+
+    function getUsernameFromCookie() {
+        const cookies = document.cookie.split(';');
+        const sessionCookie = cookies.find(cookie => cookie.trim().startsWith('session='));
+
+        if (sessionCookie) {
+            const username = sessionCookie.split('=')[1].trim();
+            return username;
+        }
+
+        return null;
+    }
+
+    // Verificar sesión al cargar la página
+    onMount(() => {
+        if (!checkSession() || getUsernameFromCookie() !== 'admin') {
+            // Redirigir o mostrar un mensaje de no autorizado
+            window.location.href = "http://localhost:5173/";
+        }
+    });
+
 	let catFact = [];
 
 	onMount(async () => {

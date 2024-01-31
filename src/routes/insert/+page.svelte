@@ -4,27 +4,53 @@
 </svelte:head>
 
 <script>
-	import fondo from '$lib/images/fondoLibro.webp';
+    import { onMount } from 'svelte';
+    import fondo from '$lib/images/fondoLibro.webp';
 
-	let author = '';
-	let name = '';
-	let price = '';
+    let author = '';
+    let name = '';
+    let price = '';
 
-	async function doPost () {
-		await fetch('/createBook', {
-			method: 'POST',
-			body: JSON.stringify({
-				author,
-				name,
-				price
-			}),
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-		location.reload();
-	}
+    function checkSession() {
+        // Obtener todas las cookies y buscar la de sesión
+        const cookies = document.cookie.split(';');
+        const sessionCookie = cookies.find(cookie => cookie.trim().startsWith('session='));
+
+        // Si la cookie de sesión existe, devuelve true
+        return sessionCookie !== undefined;
+    }
+
+    // Verificar sesión al cargar la página
+    onMount(() => {
+        if (!checkSession()) {
+            // Redirigir o mostrar un mensaje de no autorizado
+            window.location.href = "http://localhost:5173/login";
+        }
+    });
+
+    async function doPost() {
+        // Verificar sesión antes de realizar la acción
+        if (!checkSession()) {
+            alert("No autorizado, requiere iniciar sesión");
+            return;
+        }
+
+        await fetch('/createBook', {
+            method: 'POST',
+            body: JSON.stringify({
+                author,
+                name,
+                price
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        location.reload();
+    }
 </script>
+
 
 <div class="container letra">
 
