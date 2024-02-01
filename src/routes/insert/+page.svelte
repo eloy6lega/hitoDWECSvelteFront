@@ -24,6 +24,7 @@
     onMount(() => {
         if (!checkSession()) {
             // Redirigir o mostrar un mensaje de no autorizado
+			alert("No autorizado, requiere iniciar sesión");
             window.location.href = "http://localhost:5173/login";
         }
     });

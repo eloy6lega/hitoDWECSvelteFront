@@ -1,5 +1,6 @@
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
+	// import cursor1 from '$lib/images/cursor1img.png';
 
 	import { onMount } from 'svelte';
 
@@ -27,6 +28,7 @@
     // Verificar sesión al cargar la página
     onMount(() => {
         if (!checkSession() || getUsernameFromCookie() !== 'admin') {
+			alert("Necesita rol de administrador para esta función");
             // Redirigir o mostrar un mensaje de no autorizado
             window.location.href = "http://localhost:5173/";
         }
@@ -76,33 +78,35 @@
 	<meta name="description" content="About this app" />	
 </svelte:head>
 
-<div class="container">
-	<h2 class="letra1">Panel de Administrador</h2>
-	<div class="row letra datos">
-		{#each catFact as fact}
-			<div class="col-md-4">
-				<div class="card" style="background-image: url({fondo});">
-					<div class="card-body">
-						<h5 class="card-text">{fact.name}</h5>
-						<h6 class="card-text">~ {fact.author} ~</h6>
-						<p class="card-text">Precio: {fact.price}</p>
-						<p class="card-text">Id: {fact.id}</p>
+<section style="cursor: url({cursor1}), auto; width: 100%; height: 100%;">
+	<div class="container">
+		<h2 class="letra1">Panel de Administrador</h2>
+		<div class="row letra datos">
+			{#each catFact as fact}
+				<div class="col-md-4">
+					<div class="card" style="background-image: url({fondo});">
+						<div class="card-body">
+							<h5 class="card-text">{fact.name}</h5>
+							<h6 class="card-text">~ {fact.author} ~</h6>
+							<p class="card-text">Precio: {fact.price}</p>
+							<p class="card-text">Id: {fact.id}</p>
 
-						<div>
-							<button class="boton" on:click={()=>doUpdate(fact.id)}>
-								<img src="https://cdn-icons-png.flaticon.com/512/3094/3094025.png" alt="imagen" width="30px" height="30px">
-							</button>
-							<button class="boton" on:click={()=>doDelete(fact.id)}>
-								<img src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="imagen" width="30px" height="30px">
-							</button>
-						</div>		
-						
+							<div>
+								<button class="boton" on:click={()=>doUpdate(fact.id)}>
+									<img src="https://cdn-icons-png.flaticon.com/512/3094/3094025.png" alt="imagen" width="30px" height="30px">
+								</button>
+								<button class="boton" on:click={()=>doDelete(fact.id)}>
+									<img src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="imagen" width="30px" height="30px">
+								</button>
+							</div>		
+							
+						</div>
 					</div>
 				</div>
-			</div>
-		{/each}
+			{/each}
+		</div>
 	</div>
-</div>
+</section>
 
 <style>
 
@@ -115,6 +119,7 @@
 	}
 
 	.card{
+		
 		margin: 0 auto;
 		border: 1px solid rgb(0, 0, 0);
 		border-radius: 10px;

@@ -5,29 +5,28 @@
 
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
+	
+	let isCursor1 = true;
+
+	function cambiarCursor() {
+		isCursor1 = false;
+	}
+
+	function restaurarCursor() {
+		isCursor1 = true;
+	}
 </script>
 
-<!-- Me gustaría añadir un cursor personalizado a la web entera. Los archivos están descargados en la carpeta images -->
-
-<section style="margin-top:-40px; font-size: 60px">
-	<div class="letra datos">
-		<div>
-			<div class="bg-white shadow-md rounded-lg p-4 cartas" style="background-image: url({fondo});">
-				<div>
-					<br>
-					<p class="titu">La Biblioteca Mágica</p>
-					<p class="lema">~ El secreto está en las páginas ~</p>
-				</div>
-				<p class="spam">Hito realizado poe ELOY PEREZ</p>
-			</div>
-			
-		</div>
-	</div>
-	
-	<!-- <p class="letra" style="font-size: 30px; margin-top: -1px">El secreto está en las páginas</p> -->
-</section>
-
 <style>
+
+	.cursor1 {
+		cursor: url('$lib/images/cursor1img.png'), auto;
+	}
+
+	.cursor2 {
+		cursor: url('$lib/images/cursor2img.png'), auto;
+	}
+
 	section {
 		display: flex;
 		flex-direction: column;
@@ -37,6 +36,9 @@
 		text-align: center;
 		color: white;
 		text-shadow: 2px 2px 5px #000000;
+		margin-top: -40px;
+		font-size: 60px;
+		background-image: url({fondo});
 	}
 
 	/* global.css */
@@ -73,3 +75,26 @@
 	}
 
 </style>
+<!-- style="margin-top:-40px; font-size: 60px;" -->
+
+<section
+	role="button"
+	tabindex="0"
+	on:mouseenter={cambiarCursor}
+	on:mouseleave={restaurarCursor}
+	class:cursor1={isCursor1}
+	class:cursor2={!isCursor1}
+>
+	<div class="letra datos">
+		<div>
+			<div class="bg-white shadow-md rounded-lg p-4 cartas" style="background-image: url({fondo})">
+				<div>
+					<br>
+					<p class="titu">La Biblioteca Mágica</p>
+					<p class="lema">~ El secreto está en las páginas ~</p>
+				</div>
+				<p class="spam">Hito realizado por ELOY PÉREZ</p>
+			</div>
+		</div>
+	</div>
+</section>

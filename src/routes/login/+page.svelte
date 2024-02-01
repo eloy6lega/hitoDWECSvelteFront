@@ -1,5 +1,7 @@
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
+	import cursor1 from '$lib/images/cursor1img.png';
+	import cursor2 from '$lib/images/cursor2img.png';
 
 	function doGoogle() {
 		alert("Aún no tenemos contrato con Google, pero pronto lo tendremos");
@@ -39,42 +41,44 @@
 
 </script>
 
-<div class="formulario">
-    <h1 class="letraTitle">Iniciar Sesión</h1>
-    <div class="formu letraNormal">
-        <form>
-            <div class="campos">
-                <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" placeholder="Ingresa tu usuario">
-            </div>
-            <div class="campos">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
-            </div>
-            <div class="boton1">
-                <button type="submit" on:click={login}>Iniciar Sesión</button>
-            </div>
-        </form>
-        <div class="line-container">
-            <div class="line"></div>
-            <div class="centered-char">O</div>
-            <div class="line"></div>
-        </div>
+<section style="width: 100%; height: 100%">
+	<div class="formulario" style="cursor: url({cursor2}), auto;">
+		<h1 class="letraTitle">Iniciar Sesión</h1>
+		<div class="formu letraNormal">
+			<form>
+				<div class="campos">
+					<label for="username" style="cursor: url({cursor2}), auto;">Usuario:</label>
+					<input type="text" id="username" name="username" placeholder="Ingresa tu usuario" style="cursor: url({cursor1}), auto;">
+				</div>
+				<div class="campos">
+					<label for="password" style="cursor: url({cursor2}), auto;">Contraseña:</label>
+					<input type="password" id="password" name="password" placeholder="*************" style="cursor: url({cursor1}), auto;">
+				</div>
+				<div class="boton1">
+					<button type="submit" on:click={login} style="cursor: url({cursor1}), auto;">Iniciar Sesión</button>
+				</div>
+			</form>
+			<div class="line-container">
+				<div class="line"></div>
+				<div class="centered-char">O</div>
+				<div class="line"></div>
+			</div>
 
-        <div class="botones2">
-            <div class="botones2-1">
-                <button type="button" on:click={doGoogle}>
-                    <!-- Logo de Google (sustituye la fuente por tu imagen) -->
-                    <img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" alt="Google Logo" style="height: 50px; width: auto;">
-                </button>
-            </div>
-            <div class="botones2-1">
-                <button on:click={doGuest} type="button" style="height: 78px; width: auto; font-size: 30px;">Acceder como invitado</button>
-            </div>
-        </div>
+			<div class="botones2">
+				<div class="botones2-1">
+					<button type="button" on:click={doGoogle} style="cursor: url({cursor1}), auto;">
+						<!-- Logo de Google (sustituye la fuente por tu imagen) -->
+						<img src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" alt="Google Logo" style="height: 50px; width: auto;">
+					</button>
+				</div>
+				<div class="botones2-1">
+					<button on:click={doGuest} type="button" style="height: 78px; width: auto; font-size: 30px; cursor: url({cursor1}), auto;">Acceder como invitado</button>
+				</div>
+			</div>
 
-    </div>
-</div>
+		</div>
+	</div>
+</section>
 
 
 <style>
@@ -97,6 +101,7 @@
 	.campos{
 		display: flex;
 		flex-direction: column;
+		
 	}
 
 	input{
