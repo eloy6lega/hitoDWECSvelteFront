@@ -6,6 +6,8 @@
 <script>
     import { onMount } from 'svelte';
     import fondo from '$lib/images/fondoLibro.webp';
+	import cursor1 from '$lib/images/cursor1img.png';
+	import cursor2 from '$lib/images/cursor2img.png';
 
     let author = '';
     let name = '';
@@ -53,22 +55,22 @@
 </script>
 
 
-<div class="container letra">
+<div class="container letra" style="cursor: url({cursor2}), auto">
 
 	<h1 style="font-size: 80px;">Inserte los datos para un nuevo libro</h1>
 	
 	<div class="formulario">
 		
-			<label for="bookAuthor">Autor del libro:</label>
-			<input type="text" id="bookAuthor" bind:value={author} style="background-image: url({fondo}); text-align: center;"><br>
+			<label for="bookAuthor" style="cursor: url({cursor2}), auto">Autor del libro:</label>
+			<input type="text" id="bookAuthor" bind:value={author} style="background-image: url({fondo}); text-align: center; cursor: url({cursor1}), auto"><br>
 
-			<label for="bookName">Nombre del libro:</label>
-			<input type="text" id="bookName" bind:value={name} style="background-image: url({fondo}); text-align: center;"><br>
+			<label for="bookName" style="cursor: url({cursor2}), auto">Nombre del libro:</label>
+			<input type="text" id="bookName" bind:value={name} style="background-image: url({fondo}); text-align: center;  cursor: url({cursor1}), auto"><br>
 
-			<label for="bookPrice">Precio:</label>
-			<input type="number" step="0.01" id="bookPrice" bind:value={price} style="background-image: url({fondo}); text-align: center;"><br>
+			<label for="bookPrice" style="cursor: url({cursor2}), auto">Precio:</label>
+			<input type="number" step="0.01" id="bookPrice" bind:value={price} style="background-image: url({fondo}); text-align: center;  cursor: url({cursor1}), auto"><br>
 
-			<button on:click={doPost}>Crear Libro</button>
+			<button on:click={doPost} style="cursor: url({cursor1}), auto">Crear Libro</button>
 		
 	</div>
 </div>

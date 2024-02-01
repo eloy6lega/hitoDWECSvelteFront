@@ -1,6 +1,7 @@
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
-	// import cursor1 from '$lib/images/cursor1img.png';
+	import cursor1 from '$lib/images/cursor1img.png';
+	import cursor2 from '$lib/images/cursor2img.png';
 
 	import { onMount } from 'svelte';
 
@@ -60,6 +61,7 @@
 	async function doUpdate (id) {
 		// console.log(id);
 		console.log('Función NO disponible por el momento');
+		alert('Función NO disponible por el momento');
 		// await fetch(`/updateBook`, {
 		// 	method: 'POST',
 			
@@ -78,7 +80,7 @@
 	<meta name="description" content="About this app" />	
 </svelte:head>
 
-<section style="cursor: url({cursor1}), auto; width: 100%; height: 100%;">
+<section style="cursor: url({cursor2}), auto; width: 100%; height: 100%;">
 	<div class="container">
 		<h2 class="letra1">Panel de Administrador</h2>
 		<div class="row letra datos">
@@ -92,10 +94,10 @@
 							<p class="card-text">Id: {fact.id}</p>
 
 							<div>
-								<button class="boton" on:click={()=>doUpdate(fact.id)}>
+								<button class="boton" on:click={()=>doUpdate(fact.id)} style="cursor: url({cursor1}), auto;">
 									<img src="https://cdn-icons-png.flaticon.com/512/3094/3094025.png" alt="imagen" width="30px" height="30px">
 								</button>
-								<button class="boton" on:click={()=>doDelete(fact.id)}>
+								<button class="boton" on:click={()=>doDelete(fact.id)} style="cursor: url({cursor1}), auto;">
 									<img src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="imagen" width="30px" height="30px">
 								</button>
 							</div>		

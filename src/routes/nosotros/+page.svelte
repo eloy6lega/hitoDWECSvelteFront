@@ -1,5 +1,7 @@
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
+	import cursor1 from '$lib/images/cursor1img.png';
+	import cursor2 from '$lib/images/cursor2img.png';
 </script>
 
 <svelte:head>
@@ -7,15 +9,14 @@
 	<meta name="description" content="About this app" />	
 </svelte:head>
 
-<div class="container letra">
-
+<div class="container letra" style="cursor: url({cursor1}), auto;">
 	<div class="letra datos">
 		<div class="seccion">
 			<div class="bg-white shadow-md rounded-lg p-4 cartas" style="background-image: url({fondo});">
 				<div class="">
 					<br>
 					<p class="titulo">BIENVENIDOS A LA BIBLIOTECA DE HARRY POTTER</p>
-					<div class="lema">
+					<div class="lema" style="cursor: url({cursor2}), auto;">
 						<p>Somos un grupo de entusiastas de los libros de Harry Potter.</p><br>
 						<p>Aquí encontrarás una amplia colección de libros relacionados con el mundo mágico de Harry Potter, desde los clásicos siete libros de la serie principal hasta libros complementarios, guías y mucho más.</p><br>
 						<p style="font-size: 40px;">Únete y sumérgete en el maravilloso mundo de Harry Potter</p>
@@ -28,8 +29,6 @@
 			
 		</div>
 	</div>
-	
-
 </div>
 
 <style>

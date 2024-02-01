@@ -1,5 +1,7 @@
 <script>
 	import fondo from '$lib/images/fondoLibro.webp';
+	import cursor1 from '$lib/images/cursor1img.png';
+	import cursor2 from '$lib/images/cursor2img.png';
 
 	import { onMount } from 'svelte';
 	let catFact = [];
@@ -17,7 +19,7 @@
 	<meta name="description" content="About this app" />	
 </svelte:head>
 
-	<div class="letra datos">
+	<div class="letra datos" style="cursor: url({cursor2}), auto">
 		{#each catFact as fact}
 			<div>
 				<div class="bg-white shadow-md rounded-lg p-4 cartas" style="background-image: url({fondo});">
@@ -25,7 +27,7 @@
 						<p>{fact.name}</p>
 						<p>~ {fact.author} ~</p>
 					</div>
-					<p class="precio">Precio: {fact.price}€</p>
+					<p class="precio" style="cursor: url({cursor1}), auto">Precio: {fact.price}€</p>
 				</div>
 			</div>
 		{/each}
